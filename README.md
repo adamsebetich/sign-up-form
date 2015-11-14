@@ -1,1 +1,2 @@
-My favorite candy is chocolate, esp dark
+My favorite candy is chocolate, 
+especially milk chocolate
