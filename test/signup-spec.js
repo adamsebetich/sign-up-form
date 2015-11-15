@@ -3,6 +3,12 @@
 // Tests sign up form's email validation, 
 describe('Sign Up Form', function(){
 
+  // Loads page for each test
+  beforeEach(function() {
+    browser.get('http://localhost:8000');
+  });
+
+
   // NAME TESTS
 
   // BIRTHDATE TESTS
@@ -10,7 +16,6 @@ describe('Sign Up Form', function(){
   // EMAIL TESTS
   // Correct EMAILS should work
   it('should pass valid emails', function(){
-      browser.get('http://localhost:8000');
 
       expect( browser.getTitle() ).toEqual('Watch List');
 
@@ -21,15 +26,21 @@ describe('Sign Up Form', function(){
   });
   // Incorrect EMAILS shouldn't work
   it('should fail invalid emails', function(){
-    browser.get('http://localhost:8000');
+
+    var first =  element(by.model('firstName'));
+    searchBar.sendKeys('Jane');
+
+    var last =  element(by.model('lastName'));
+    searchBar.sendKeys('Doe');
 
     var emailInput = element(by.model('email'));
-    searchBar.sendKeys('bad.email.gmail.com');
+    searchBar.sendKeys('bad.email.doe.com');
 
-    var button = element(by.id('submit-button'));
+    var button = element(by.id('sign-me-up-button'));
     button.click();
 
-    var modalBody = element(by.css('.modal-body'));
+    // does it fail?
+    var error = element(by.css('.modal-body'));
     expect( modalBody.isPresent() ).toEqual(true);
 
   });
