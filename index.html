@@ -18,7 +18,11 @@
 
       <div ng-controller="FormCtrl">
         <form name="signUpForm" class="form-horizontal" novalidate>
-
+      
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="firstName" id="firstName" class="form-control" ng-model="firstName" placeholder="your first name" required>
+      </div>
         <div class="form-group" ng-class="{'has-error': signUpForm.lastName.$invalid}">
           <label for="lastName">Last Name:</label>
           <input type="text" name="lastName" id="lastName" class="form-control" ng-model="lastName" placeholder="your last name"required>
