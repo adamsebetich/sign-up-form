@@ -18,15 +18,18 @@
 
       <div ng-controller="FormCtrl">
         <form name="signUpForm" class="form-horizontal" novalidate>
+          
         <div class="form-group">
           <label for="lastName">Last Name:</label>
           <input type="text" name="lastName" id="lastName" class="form-control" ng-model="lastName" placeholder="your last name"required>
           <p ng-show="!sign-up-form.lastName.$pristine && sign-up-form.lastName.$invalid"class="help-block"></p>
         </div>  
+
         <div class="form-group">
           <label for="birthdate">Birthdate</label>
           <input type="text" name="birthdate" id="birthdate" class="form-control" ng-model="birthdate" placeholder="your birthdate" required>
         </div>
+
         <div class="form-group" ng-class="{'has-error': signUpForm.email.$invalid}">
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" class="form-control" ng-model="email">
@@ -37,23 +40,6 @@
         <button type="submit" class="btn btn-primary" ng-click="submitForm(sign-up-form)" ng-disabled="sign-up-form.$invalid">Sign Me Up!</button>
       </div>
         </form>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
-</head>
-<body ng-app="FormApp" class="container">
-  <h1>Sign Up To TaterTots</h1>
-  <p class="lead">Our service is fun and awesome, but you must be 13 years old to join</p>
-
-  <div ng-controller="FormCtrl">
-    <form name="signUpForm" class="form-horizontal" novalidate>
-      <div class="form-group" ng-class="{'has-error': signUpForm.lastName.$invalid}">
-        <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" id="lastName" class="form-control" ng-model="lastName" placeholder="your last name" required>
-        <p ng-show="!signUpForm.lastName.$pristine && signUpForm.lastName.$invalid"class="help-block"><font color="red">We need to know your last name</font></p>
-      </div>  
-    </form>     
-
-  </div> <!-- end form wrapper -->
 
   <!-- load our script -->
   <script src="js/app.js"></script>
