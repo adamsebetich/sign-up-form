@@ -46,9 +46,15 @@
         </div>
 
 
-        <div ng-app="app" class="form-group" ng-controller="ctrl">
+      <div class="errors">
+        <div class="invalid" ng-show="signUpForm.password.$touched">
+          <span ng-show="signUpForm.password.$error.required">Please enter a password</span>
+        </div>
+      </div>
+
+      <div ng-app="app" class="form-group" ng-controller="ctrl">
           <label for="password">Password:</label>
-            <input autofocus type="password" name="password" id="password" class="form-control" ng-model="pass"></input>
+            <input autofocus type="password" name="password" placeholder="Password "id="password" class="form-control" ng-model="password" required >
           </label>
           <label> Strength:
             <progress min="0" max="4" value="{{v()}}"></progress>
@@ -56,11 +62,26 @@
           </label>     
       </div>
 
+        <div class="form-group">
+          <label for="confirmpassword">Confirm Password:</label>
+          <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password" class="form-control" ng-model="confirmpassword" required ng-change="passwordConfirmed()" >
+        </div>    
 
-        <button type="submit" id="reset-button" class="btn btn-default" ng-click="submitForm(sign-up-form)" ng-disabled="sign-up-form.$invalid">Reset</button>
-        <button type="submit" id="sign-me-up-button" class="btn btn-primary" ng-click="submitForm(sign-up-form)" ng-disabled="sign-up-form.$invalid">Sign Me Up!</button>
-      </div>
-        </form>
+        <div class="errors">
+          <div class="invalid" ng-show="signUpForm.confirmpassword.$touched">
+            <span ng-show="signUpForm.confirmpassword.$error.required">Please re-enter your password</span>
+          </div>
+        </div>
+        <div class="errors">
+          <div class="invalid" ng-show="!passwordConfirmed()">
+            <span class="help-block">Passwords must match</span>
+          </div>
+        </div> 
+
+          <button type="submit" id="reset-button" class="btn btn-default" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid">Reset</button>
+          <button type="submit" id="sign-me-up-button" class="btn btn-primary" ng-click="submitForm(signUpForm)">Sign Me Up!</button>
+        </div>
+    </form>
 
   <!-- load our script -->
 

@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('FormApp', [])
+var FormApp = angular.module('FormApp', []);
 
-.controller('FormCtrl', ['$scope', function($scope) { 
+FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) { 
 
   $scope.submitForm = function(form){
   	if(form.$valid) {
@@ -12,7 +12,22 @@ angular.module('FormApp', [])
   		alert("There was an error submitting your payment. Please check that your information is correct.");
   	}
   }
+
+  $scope.passwordConfirmed = function() {
+
+  	if($scope.password === $scope.confirmpassword) {
+  		$scope.signUpForm.confirmpassword.$setValidity('$invalid', true);
+  		return true;
+  	}
+  	else {
+  		$scope.signUpForm.confirmpassword.$setValidity('$invalid', false);
+  		return false;
+  	}
+  }
+  
 }])
+
+
 
  
 
