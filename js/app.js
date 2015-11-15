@@ -12,10 +12,9 @@ angular.module('FormApp', [])
   		alert("There was an error submitting your payment. Please check that your information is correct.");
   	}
   }
-  var myApp = angular.module('myApp',[]);
-
-  function MyCtrl($scope) {}
 }])
+
+ 
 
 .controller('ctrl', function($scope){
   $scope.pass="";
