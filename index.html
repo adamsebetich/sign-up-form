@@ -30,6 +30,7 @@
         </div>  
 
         <div class="form-group">
+
           <label for="birthdate">Birthdate</label>
           <input type="text" name="birthdate" id="birthdate" class="form-control" ng-model="birthdate" placeholder="your birthdate" required>
           <p ng-show="signUpForm.birthdate.$error"></p>
@@ -42,9 +43,25 @@
           <span id="email-error"class="help-block" ng-show="signUpForm.email.$error.email">Please enter a valid email address</span>
         </div>
 
-        <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" class="form-control" ng=model="password" required>
+        <div ng-app="app" class="form-group" ng-controller="ctrl">
+          <label for="password">Password:</label>
+            <input
+                   autofocus
+                   type="password"
+                   name="password"
+                   id="password"
+                   class="form-control"
+                   ng-model="pass"/>
+          </label>
+          <label>
+            Strength:
+            <progress
+                      min="0"
+                      max="4"
+                      value="{{v()}}"></progress>
+            <span>{{v()}}</span>
+          </label>     
+      </div>
 
         <button type="submit" id="reset-button" class="btn btn-default" ng-click="submitForm(sign-up-form)" ng-disabled="sign-up-form.$invalid">Reset</button>
         <button type="submit" id="sign-me-up-button" class="btn btn-primary" ng-click="submitForm(sign-up-form)" ng-disabled="sign-up-form.$invalid">Sign Me Up!</button>
