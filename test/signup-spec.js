@@ -19,14 +19,14 @@ describe('Sign Up Form', function(){
   // Correct EMAILS should work
   it('should pass valid emails', function(){
     var first =  element(by.model('firstName'));
-    searchBar.sendKeys('Jane');
+    first.sendKeys('Jane');
 
     var last =  element(by.model('lastName'));
-    searchBar.sendKeys('Doe');
+    last.sendKeys('Doe');
 
     // good email
     var email = element(by.model('email'));
-    searchBar.sendKeys('jane@doe.com');
+    email.sendKeys('jane@doe.com');
 
     var button = element(by.id('sign-me-up-button'));
     button.click();
@@ -39,14 +39,14 @@ describe('Sign Up Form', function(){
   // Incorrect EMAILS shouldn't work
   it('should fail invalid emails', function(){
     var first =  element(by.model('firstName'));
-    searchBar.sendKeys('Jane');
+    first.sendKeys('Jane');
 
     var last =  element(by.model('lastName'));
-    searchBar.sendKeys('Doe');
+    last.sendKeys('Doe');
 
     // bad email
     var email = element(by.model('email'));
-    searchBar.sendKeys('bad.email.doe.com');
+    email.sendKeys('bad.email.doe.com');
 
     var button = element(by.id('sign-me-up-button'));
     button.click();
