@@ -45,20 +45,10 @@
 
         <div ng-app="app" class="form-group" ng-controller="ctrl">
           <label for="password">Password:</label>
-            <input
-                   autofocus
-                   type="password"
-                   name="password"
-                   id="password"
-                   class="form-control"
-                   ng-model="pass"/>
+            <input autofocus type="password" name="password" id="password" class="form-control" ng-model="pass"></input>
           </label>
-          <label>
-            Strength:
-            <progress
-                      min="0"
-                      max="4"
-                      value="{{v()}}"></progress>
+          <label> Strength:
+            <progress min="0" max="4" value="{{v()}}"></progress>
             <span>{{v()}}</span>
           </label>     
       </div>

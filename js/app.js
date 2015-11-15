@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('FormApp', [])
+
 .controller('FormCtrl', ['$scope', function($scope) { 
 
   $scope.submitForm = function(form){
