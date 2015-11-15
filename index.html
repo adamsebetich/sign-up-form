@@ -32,6 +32,8 @@
         <div class="form-group">
           <label for="birthdate">Birthdate</label>
           <input type="text" name="birthdate" id="birthdate" class="form-control" ng-model="birthdate" placeholder="your birthdate" required>
+          <p ng-show="signUpForm.birthdate.$error"></p>
+
         </div>
 
         <div class="form-group" ng-class="{'has-error': signUpForm.email.$invalid}">
