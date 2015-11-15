@@ -1,12 +1,11 @@
 'use strict';
 
-describe('To-watch list search page', function(){
+// Tests sign up form's email validation, 
+describe('Sign Up Form', function(){
 
-    //this is a test
-    it('should have the right title', function(){
+    // Correct emails should work
+    it('should pass valid emails', function(){
         browser.get('http://localhost:8000/#/watchlist');
-
-        //browser.getTitle(); //do nothing with yet
 
         expect( browser.getTitle() ).toEqual('Watch List');
 
@@ -16,8 +15,8 @@ describe('To-watch list search page', function(){
 
     });
 
-    //another test!
-    it('it should open a modal search window', function(){
+    // Incorrect emails shouldn't work
+    it('should fail invalid emails', function(){
       browser.get('http://localhost:8000/#/watchlist');
 
       var searchBar = element(by.model('searchQuery'));
