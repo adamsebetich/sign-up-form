@@ -1,0 +1,50 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css);
+
+
+.ng-valid {
+	border: 1px solid green;
+}
+
+/* generic coloring classes */
+
+.big-and-purple {
+	font-size: larger;
+	font-weight: 700;
+	color: rebeccapurple;
+}
+
+.red {
+	color: red;
+}
+
+.blue {
+	color: blue;
+}
+
+.highlighted {
+	background-color: yellow;
+}
+
+.hidden {
+	display: none;
+}
+
+/*p {
+	margin-bottom: 1em;
+}
+img {
+	margin-bottom: 10px;
+}
+*/
+
+/* for fun */
+
+.flash {
+	color: red;
+	animation: blinker 1s linear;
+	animation-iteration-count: 5;
+}
+
+@keyframes blinker {
+	50% { opacity: 0.0; }
+}
