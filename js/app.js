@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('FormApp', [])
-.controller('FormCtrl', ['$scope', function($scope) { 
+.controller('FormCtrl', ['$scope', '$validator' function($scope, $validator) { 
 
   $scope.submitForm = function(form){
   	if(form.$valid) {

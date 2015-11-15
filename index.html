@@ -26,7 +26,7 @@
         <div class="form-group" ng-class="{'has-error': signUpForm.lastName.$invalid}">
           <label for="lastName">Last Name:</label>
           <input type="text" name="lastName" id="lastName" class="form-control" ng-model="lastName" placeholder="your last name"required>
-          <p ng-show="!signUpForm.lastName.$pristine && signUpForm.lastName.$invalid"class="help-block">we need to know your last name</p>
+          <p id="last-name-error" ng-show="!signUpForm.lastName.$pristine && signUpForm.lastName.$invalid"class="help-block">we need to know your last name</p>
         </div>  
 
         <div class="form-group">
@@ -37,7 +37,7 @@
         <div class="form-group" ng-class="{'has-error': signUpForm.email.$invalid}">
           <label for="email">Email:</label>
           <input type="email" name="email" id="email" class="form-control" ng-model="email">
-          <span class="help-block" ng-show="signUpForm.email.$error.email">Please enter a valid email address</span>
+          <span id="email-error"class="help-block" ng-show="signUpForm.email.$error.email">Please enter a valid email address</span>
         </div>
 
         <div class="form-group">
