@@ -11,5 +11,4 @@ angular.module('FormApp', [])
   		alert("There was an error submitting your payment. Please check that your information is correct.");
   	}
   }
-  
 }])
