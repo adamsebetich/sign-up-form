@@ -3,35 +3,40 @@
 // Tests sign up form's email validation, 
 describe('Sign Up Form', function(){
 
-    // Correct emails should work
-    it('should pass valid emails', function(){
-        browser.get('http://localhost:8000/#/watchlist');
+  // NAME TESTS
 
-        expect( browser.getTitle() ).toEqual('Watch List');
+  // BIRTHDATE TESTS
 
-        browser.getTitle().then(function(response){
-            console.log(response);
-        });
+  // EMAIL TESTS
+  // Correct EMAILS should work
+  it('should pass valid emails', function(){
+      browser.get('http://localhost:8000');
 
-    });
+      expect( browser.getTitle() ).toEqual('Watch List');
 
-    // Incorrect emails shouldn't work
-    it('should fail invalid emails', function(){
-      browser.get('http://localhost:8000/#/watchlist');
+      browser.getTitle().then(function(response){
+          console.log(response);
+      });
 
-      var searchBar = element(by.model('searchQuery'));
-      searchBar.sendKeys('shawshank');
+  });
+  // Incorrect EMAILS shouldn't work
+  it('should fail invalid emails', function(){
+    browser.get('http://localhost:8000');
 
-      browser.pause();
+    var emailInput = element(by.model('email'));
+    searchBar.sendKeys('bad.email.gmail.com');
 
-      var button = element(by.id('searchButton'));
-      button.click();
+    var button = element(by.id('submit-button'));
+    button.click();
 
-      var modalBody = element(by.css('.modal-body'));
-      expect( modalBody.isPresent() ).toEqual(true);
+    var modalBody = element(by.css('.modal-body'));
+    expect( modalBody.isPresent() ).toEqual(true);
+
+  });
 
 
 
-    });
+  // PASSWORD TESTS 
+
 
 })
