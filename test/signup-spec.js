@@ -8,6 +8,31 @@ describe('Sign Up Form', function(){
     browser.get('http://localhost:8000');
   });
 
+  // Correct EVERYTHING should work
+  it('should pass valid emails', function(){
+    var first =  element(by.model('firstName'));
+    first.sendKeys('Jane');
+
+    var last =  element(by.model('lastName'));
+    last.sendKeys('Doe');
+
+    var date = element(by.model('birthdate'));
+    last.sendKeys('11/14/2002');
+
+    var email = element(by.model('email'));
+    email.sendKeys('jane@doe.com');
+
+    var button = element(by.id('sign-me-up-button'));
+    button.click();
+
+    var password = element(by.model('password'));
+    email.sendKeys('paSSword123!');
+
+    // aaand Test!
+    var error = element(by.model('email-error'));
+    expect( error.isDisplayed() ).toEqual(false);
+  });
+
 
   // NAME TESTS
 
@@ -16,47 +41,31 @@ describe('Sign Up Form', function(){
 
 
   // EMAIL TESTS
-  // Correct EMAILS should work
-  it('should pass valid emails', function(){
-    var first =  element(by.model('firstName'));
-    first.sendKeys('Jane');
-
-    browser.pause();
-
-    var last =  element(by.model('lastName'));
-    last.sendKeys('Doe');
-
-    // good email
-    var email = element(by.model('email'));
-    email.sendKeys('jane@doe.com');
-
-    var button = element(by.id('sign-me-up-button'));
-    button.click();
-
-    // does it fail?
-    var error = element(by.model('email-error'));
-    expect( error.isDisplayed() ).toEqual(false);
-  });
-
   // Incorrect EMAILS shouldn't work
-  it('should fail invalid emails', function(){
-    var first =  element(by.model('firstName'));
-    first.sendKeys('Jane');
+  // it('should fail invalid emails', function(){
+  //   var first =  element(by.model('firstName'));
+  //   first.sendKeys('Jane');
 
-    var last =  element(by.model('lastName'));
-    last.sendKeys('Doe');
+  //   var last =  element(by.model('lastName'));
+  //   last.sendKeys('Doe');
 
-    // bad email
-    var email = element(by.model('email'));
-    email.sendKeys('bad.email.doe.com');
+  //   var date = element(by.model('birthdate'));
+  //   last.sendKeys('11/14/2002');
 
-    var button = element(by.id('sign-me-up-button'));
-    button.click();
+  //   // bad email
+  //   var email = element(by.model('email'));
+  //   email.sendKeys('bad.email.doe.com');
 
-    // does it fail?
-    var error = element(by.model('email-error'));
-    expect( error.isDisplayed() ).toEqual(true);
-  });
+  //   var password = element(by.model('password'));
+  //   email.sendKeys('paSSword123!');
+
+  //   var button = element(by.id('sign-me-up-button'));
+  //   button.click();
+
+  //   // aaand Test!
+  //   var error = element(by.model('email-error'));
+  //   expect( error.isDisplayed() ).toEqual(true);
+  // });
 
 
 
