@@ -21,6 +21,8 @@ describe('Sign Up Form', function(){
     var first =  element(by.model('firstName'));
     first.sendKeys('Jane');
 
+    browser.pause();
+
     var last =  element(by.model('lastName'));
     last.sendKeys('Doe');
 
