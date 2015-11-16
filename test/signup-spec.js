@@ -30,42 +30,33 @@ describe('Sign Up Form', function(){
 
     // aaand Test!
     var error = element(by.model('email-error'));
-    expect( error.isDisplayed() ).toEqual(false);
+    expect( error.isPresent() ).toEqual(false);
   });
 
 
   // NAME TESTS
+  it('should give error for name names', function(){
+
+    // aaand Test!
+    var error = element(by.model('last-name-error'));
+    expect( error.isPresemt() ).toEqual(true);
+  });
+
 
   // BIRTHDATE TESTS
 
 
 
-  // EMAIL TESTS
-  // Incorrect EMAILS shouldn't work
-  // it('should fail invalid emails', function(){
-  //   var first =  element(by.model('firstName'));
-  //   first.sendKeys('Jane');
+  // EMAIL TEST: should produce error
+  it('should give error for bad email', function(){
+    // bad email
+    var email = element(by.model('email'));
+    email.sendKeys('bad.email.doe.com');
 
-  //   var last =  element(by.model('lastName'));
-  //   last.sendKeys('Doe');
-
-  //   var date = element(by.model('birthdate'));
-  //   last.sendKeys('11/14/2002');
-
-  //   // bad email
-  //   var email = element(by.model('email'));
-  //   email.sendKeys('bad.email.doe.com');
-
-  //   var password = element(by.model('password'));
-  //   email.sendKeys('paSSword123!');
-
-  //   var button = element(by.id('sign-me-up-button'));
-  //   button.click();
-
-  //   // aaand Test!
-  //   var error = element(by.model('email-error'));
-  //   expect( error.isDisplayed() ).toEqual(true);
-  // });
+    // aaand Test!
+    var error = element(by.model('email-error'));
+    expect( error.isPresemt() ).toEqual(true);
+  });
 
 
 
