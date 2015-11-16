@@ -14,7 +14,6 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
   }
 
   $scope.passwordConfirmed = function() {
-
   	if($scope.password === $scope.confirmpassword) {
   		$scope.signUpForm.confirmpassword.$setValidity('$invalid', true);
   		return true;
@@ -25,6 +24,17 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
   	}
   }
   
+  $scope.birthdateInput = function(birthdate){
+    var todaysDate = Date.parse('11/15/2015');
+    var userBirthdate = Date.parse(birthdate);
+    var ageOfUser = todaysDate - userBirthdate; 
+    var convertToYears = ageOfUser / 31536000000; 
+    if(convertToYears >= 13) {
+      return true;
+    } else {
+      return false; 
+    }
+  }
 }])
 
 
@@ -55,17 +65,7 @@ function test(pass){
   return secure;
 }
 
-  $scope.birthdateInput = function(birthdate){
-  	var todaysDate = Date.parse('11/15/2015');
-  	var userBirthdate = Date.parse(birthdate);
-  	var ageOfUser = todaysDate - userBirthdate; 
-  	var convertToYears = ageOfUser / 31536000000; 
-  	if(convertToYears >= 13) {
-  		return true;
-  	} else {
-  		return false; 
-  	}
-  }
+
 
 }])
 
