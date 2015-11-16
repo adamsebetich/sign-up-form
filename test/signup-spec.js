@@ -13,28 +13,28 @@ describe('Sign Up Form', function(){
     var first =  element(by.model('firstName'));
     first.sendKeys('Jane');
 
+    // Test Last name
     var last =  element(by.model('lastName'));
+    var error1 = element(by.model('last-name-error'));
     last.sendKeys('Doe');
-    // aaand Test Last Name!
-    var error = element(by.model('last-name-error'));
     expect( error.isPresent() ).toEqual(false);
 
+    // Test Birthdate
     var date = element(by.model('birthdate'));
+    var error2 = element(by.model('birthdate-error'));
     last.sendKeys('11/14/2002');
-    // aaand Test Birthdate!
-    var error = element(by.model('birthdate-error'));
     expect( error.isPresent() ).toEqual(false);
 
+    // Test Email
     var email = element(by.model('email'));
+    var error3 = element(by.model('email-error'));
     email.sendKeys('jane@doe.com');
-    // aaand Test Email!
-    var error = element(by.model('email-error'));
     expect( error.isPresent() ).toEqual(false);
 
+    // Test Password
     var password = element(by.model('password'));
+    var error4 = element(by.model('password-error'));
     email.sendKeys('paSSword123!');
-    // aaand Test Password!
-    var error = element(by.model('password-error'));
     expect( error.isPresent() ).toEqual(false);
 
 
@@ -46,72 +46,70 @@ describe('Sign Up Form', function(){
 
 
   // NAME TESTS
-  it('should give error for name', function(){
-    // NO LAST NAME
-    // aaand Test!
+  it('should give error for no name', function(){
+    var last =  element(by.model('lastName'));
     var error = element(by.model('last-name-error'));
+
+    // NO LAST NAME
+    last.sendKeys('');
     expect( error.isPresemt() ).toEqual(true);
   });
 
 
   // BIRTHDATE TESTS
-  it('should give error bad birthday', function(){
+  it('should give error for bad birthday', function(){
+    var date = element(by.model('birthdate'));
+    var error = element(by.model('birthdate-error'));
+
     var month = todaysDate.getMonth();
     var day = todaysDate.getDate();
     var year = todaysDate.getFullYear();
 
     // NO BIRTHDAY
-    // aaand Test!
-    var error = element(by.model('birthdate-error'));
+    date.sendKeys('');
     expect( error.isPresemt() ).toEqual(true);
 
     // Date is nonsense
-    var date = element(by.model('birthdate'));
+    date.clear();
     date.sendKeys('IAMNOTADATE');
-    // aaand Test!
-    var error = element(by.model('birthdate-error'));
     expect( error.isPresemt() ).toEqual(true);
 
     // Date is too young (1 - by one day)
-    var date = element(by.model('birthdate'));
+    date.clear();
     date.sendKeys(month + '/' + (day + 1) + '/' + (year - 13));
-    // aaand Test!
-    var error = element(by.model('birthdate-error'));
     expect( error.isPresemt() ).toEqual(true);
 
     // Date is too young (2 - by one month)
-    var date = element(by.model('birthdate'));
+    date.clear();
     date.sendKeys((month + 1) + '/' + day + '/' + (year - 13));
-    // aaand Test!
-    var error = element(by.model('birthdate-error'));
     expect( error.isPresemt() ).toEqual(true);
 
     // Date is too young (3 - by one year)
-    var date = element(by.model('birthdate'));
+    date.clear();
     date.sendKeys(month + '/' + day + '/' + (year - 12));
-    // aaand Test!
-    var error = element(by.model('birthdate-error'));
     expect( error.isPresemt() ).toEqual(true);
-
-     // Date is GOOD (1 - by one day)
+  });
+  
+  it("shouldn't give error for GOOD birthday", function(){
     var date = element(by.model('birthdate'));
-    date.sendKeys(month + '/' + day + '/' + (year - 13));
-    // aaand Test!
     var error = element(by.model('birthdate-error'));
+
+    var month = todaysDate.getMonth();
+    var day = todaysDate.getDate();
+    var year = todaysDate.getFullYear();
+
+    // Date is GOOD (1 - by one day)
+    date.sendKeys(month + '/' + day + '/' + (year - 13));
     expect( error.isPresemt() ).toEqual(false);
 
     // Date is GOOD (2 - by one month)
-    var date = element(by.model('birthdate'));
+    date.clear();
     date.sendKeys((month - 1) + '/' + day + '/' + (year - 13));
-    // aaand Test!
-    var error = element(by.model('birthdate-error'));
     expect( error.isPresemt() ).toEqual(false);
 
     // Date is GOOD (3 - by one year)
-    var date = element(by.model('birthdate'));
+    date.clear();
     date.sendKeys(month + '/' + day + '/' + (year - 14));
-    // aaand Test!
-    var error = element(by.model('birthdate-error'));
     expect( error.isPresemt() ).toEqual(false);
   });
 
@@ -119,16 +117,16 @@ describe('Sign Up Form', function(){
 
   // EMAIL TEST: should produce error
   it('should give error for bad email', function(){
-    // NO EMAIL
-    // aaand Test!
+    var email = element(by.model('email'));
     var error = element(by.model('email-error'));
+
+    // NO EMAIL
+    email.sendKeys('');
     expect( error.isPresemt() ).toEqual(true);
 
     // Email without an @ sign
-    var email = element(by.model('email'));
+    email.clear();
     email.sendKeys('bad.email.doe.com');
-    // aaand Test!
-    var error = element(by.model('email-error'));
     expect( error.isPresemt() ).toEqual(true);
   });
 
