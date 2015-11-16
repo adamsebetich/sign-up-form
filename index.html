@@ -37,12 +37,16 @@
 
       <!-- Birthday Input -->
       <div class="form-group">
-        <label for="birthdate">Birthdate</label>
-        <input type="text" name="birthdate" id="birthdate" class="form-control" ng-model="birthdate" placeholder="M/D/YYYY" required>
-        <span id="birthdate-error"class="help-block" ng-show="birthdateInput(birthdate) == false">User too young to apply!</span>
+          <label for="birthdate">Birthdate</label>
+          <input type="text" name="birthdate" id="birthdate" class="form-control" ng-model="birthdate" placeholder="MM/D/YYYY" required>
+          <span id="birthdate-error"class="help-block" ng-show="!signUpForm.birthdate.$pristine &&birthdateInput(birthdate) == false">User too young to apply!</span>
       </div>
 
-      <!-- && signUpForm.birthdate.$touched -->
+        <div class="form-group" ng-class="{'has-error': signUpForm.email.$invalid}">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" class="form-control" ng-model="email">
+          <span id="email-error"class="help-block" ng-show="signUpForm.email.$error.email">Please enter a valid email address</span>
+        </div>
 
       <!-- Email Input -->
       <div class="form-group" ng-class="{'has-error': signUpForm.email.$invalid}">

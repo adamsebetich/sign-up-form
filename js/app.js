@@ -23,6 +23,27 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
   		return false;
   	}
   }
+
+  $scope.birthdateInput = function(birthdate){
+  	var todaysDate = new Date();
+  	var usersBirthdate = new Date(birthdate);
+  	var dayToday = todaysDate.getDate();
+  	var userDay = usersBirthdate.getDate();
+  	var monthToday = todaysDate.getMonth();
+  	var userMonth = usersBirthdate.getMonth();
+  	var yearToday = todaysDate.getFullYear();
+  	var userYear = usersBirthdate.getFullYear();
+  	if(yearToday - userYear > 13) {
+  		return true;
+  	}
+  	if(userYear == 2002 && monthToday > userMonth) {
+  		return true; 
+  	}
+  	if(userYear == 2002 && userMonth == monthToday && dayToday >= userDay) {
+  		return true; 
+  	}
+  	return false;
+  }
   
   $scope.birthdateInput = function(birthdate){
     var todaysDate = Date.parse('11/15/2015');
