@@ -40,7 +40,7 @@ describe('Sign Up Form', function(){
     var error6 = element(by.id('password-error2'));
     password.sendKeys('paSSword123!');
     password2.sendKeys('paSSword123!');
-    expect( error4.isDisplayed() ).toEqual(false);
+    expect( error4.isDisplayed() ).toEqual(true);
     expect( error5.isDisplayed() ).toEqual(false);
     expect( error6.isDisplayed() ).toEqual(false);
 
@@ -114,19 +114,19 @@ describe('Sign Up Form', function(){
     // Date is GOOD (1 - by one day)
     date.sendKeys(month + '/' + day + '/' + (year - 13));
     var error1 = element(by.id('birthdate-error'));
-    expect( error1.isPresent() ).toEqual(false);
+    expect( error1.isDisplayed() ).toEqual(false);
 
     // Date is GOOD (2 - by one month)
     date.clear();
     date.sendKeys((month - 1) + '/' + day + '/' + (year - 13));
     var error2 = element(by.id('birthdate-error'));
-    expect( error2.isPresent() ).toEqual(false);
+    expect( error2.isDisplayed() ).toEqual(false);
 
     // Date is GOOD (3 - by one year)
     date.clear();
     date.sendKeys(month + '/' + day + '/' + (year - 14));
     var error3 = element(by.id('birthdate-error'));
-    expect( error3.isPresent() ).toEqual(false);
+    expect( error3.isDisplayed() ).toEqual(false);
   });
 
 
@@ -151,6 +151,28 @@ describe('Sign Up Form', function(){
 
 
   // PASSWORD TESTS 
+  it('should give error for no password & bad combos', function() {
+    var password = element(by.model('password'));
+    var password2 = element(by.model('confirmpassword'));
+
+    // error with no password
+    password.sendKeys('paSSword123!');
+    password.clear();
+    var error4 = element(by.id('password-error'));
+    expect( error4.isDisplayed() ).toEqual(false);
+
+    // error with no confirm password
+    password2.sendKeys('paSSword123!');
+    password.clear();
+    var error5 = element(by.id('password-error1'));
+    expect( error5.isDisplayed() ).toEqual(true);
+
+    // error when passwords don't match
+    password.sendKeys('paSSword123!');
+    password2.sendKeys("I DON'T MATCH!");
+    var error6 = element(by.id('password-error2'));
+    expect( error6.isDisplayed() ).toEqual(true);
+  })
 
 
 })
