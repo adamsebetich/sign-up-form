@@ -16,12 +16,16 @@
 
 
 <body ng-app="FormApp" class="container">
-  <h1>Sign Up To TaterTots</h1>
-  <p class="lead">Our service is fun and awesome, but you must be 13 years old to join</p>
 
   <div ng-controller="FormCtrl">
     <form name="signUpForm" class="form-horizontal" novalidate>
-    
+
+      <div class="alert alert-success" ng-show="signUpForm.$submitted">
+       <strong>Success!</strong> Your form has been submitted.
+      </div>
+
+      <h1>Sign Up To TaterTots</h1>
+      <p class="lead">Our service is fun and awesome, but you must be 13 years old to join</p>
       <!-- First Name Input -->
       <div class="form-group">
         <label for="firstName">First Name:</label>
@@ -53,16 +57,15 @@
       <div ng-app="app" class="form-group" ng-class="{'has-error': signUpForm.password.$invalid}">
           <label for="password">Password:</label>
             <input autofocus type="password" name="password" placeholder="Password "id="password" class="form-control" ng-model="password" required >
-          </label>
-          <label> Strength:
+          <!---<label> Strength:
             <progress min="0" max="4" value="{{v()}}"></progress>
             <span>{{v()}}</span>
-          </label>     
+          </label> -->    
       </div>
 
          <!-- Password Input -->
       <div class="errors">
-        <div class="invalid" ng-show="signUpForm.password.$touched">
+        <div class="invalid" id="password-error" ng-show="signUpForm.password.$touched">
           <span ng-show="signUpForm.password.$error.required">Please enter a password</span>
         </div>
       </div>
@@ -87,10 +90,13 @@
 
       <!-- Reset Button -->
       <button type="submit" id="reset-button" class="btn btn-default" ng-click="reset(signUpForm)">Reset</button>
-
+     
       <!-- Submit Button -->
       <button type="submit" id="sign-me-up-button" class="btn btn-primary" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid">Sign Me Up!</button>
     </div>
+
+    
+
   </form>
 
   <!-- load our script -->

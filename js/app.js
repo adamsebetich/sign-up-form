@@ -11,7 +11,8 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
   	else {
   		console.log('form is invalid, BOOO!');
   	}
-  }
+ 
+  } 
 
   $scope.reset = function(form) {
   	$scope.email = "";
