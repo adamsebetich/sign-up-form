@@ -25,10 +25,16 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.passwordConfirmed = function() {
   	if($scope.password === $scope.confirmpassword) {
   		$scope.signUpForm.confirmpassword.$setValidity('$invalid', true);
+  		console.log('match');
+  		console.log($scope.password);
+  		console.log($scope.confirmpassword);
   		return true;
   	}
   	else {
   		$scope.signUpForm.confirmpassword.$setValidity('$invalid', false);
+  		console.log('no match');
+  		  		console.log($scope.password);
+  		console.log($scope.confirmpassword);
   		return false;
   	}
   }
