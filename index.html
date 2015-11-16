@@ -42,12 +42,6 @@
           <span id="birthdate-error"class="help-block" ng-show="!signUpForm.birthdate.$pristine &&birthdateInput(birthdate) == false">User too young to apply!</span>
       </div>
 
-        <div class="form-group" ng-class="{'has-error': signUpForm.email.$invalid}">
-          <label for="email">Email:</label>
-          <input type="email" name="email" id="email" class="form-control" ng-model="email">
-          <span id="email-error"class="help-block" ng-show="signUpForm.email.$error.email">Please enter a valid email address</span>
-        </div>
-
       <!-- Email Input -->
       <div class="form-group" ng-class="{'has-error': signUpForm.email.$invalid}">
         <label for="email">Email:</label>
