@@ -78,12 +78,12 @@
 
       <!-- Password Error messages -->
       <div class="errors">
-        <div class="invalid" ng-show="signUpForm.confirmpassword.$touched">
+        <div class="invalid" id="password-error1" ng-show="signUpForm.confirmpassword.$touched">
           <span ng-show="signUpForm.confirmpassword.$error.required">Please re-enter your password</span>
         </div>
       </div>
       <div class="errors">
-        <div class="invalid" ng-show="!passwordConfirmed()">
+        <div class="invalid" id="password-error2" ng-show="!passwordConfirmed()">
           <span class="help-block">Passwords must match</span>
         </div>
       </div>  

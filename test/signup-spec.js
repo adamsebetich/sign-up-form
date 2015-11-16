@@ -32,17 +32,17 @@ describe('Sign Up Form', function(){
     email.sendKeys('jane@doe.com');
     expect( error3.isDisplayed() ).toEqual(false);
 
-    // Test Password
+    // Test Password & Confirm Password
     var password = element(by.model('password'));
+    var password2 = element(by.model('confirmpassword'));
     var error4 = element(by.id('password-error'));
+    var error5 = element(by.id('password-error1'));
+    var error6 = element(by.id('password-error2'));
     password.sendKeys('paSSword123!');
+    password2.sendKeys('paSSword123!');
     expect( error4.isDisplayed() ).toEqual(false);
-
-    // // Test Confirm Password
-    // var password = element(by.model('confirmpassword'));
-    // var error5 = element(by.id('password-error'));
-    // password.sendKeys('paSSword123!');
-    // expect( error5.isDisplayed() ).toEqual(false);
+    expect( error5.isDisplayed() ).toEqual(false);
+    expect( error6.isDisplayed() ).toEqual(false);
 
     var button = element(by.id('sign-me-up-button'));
     button.click();
