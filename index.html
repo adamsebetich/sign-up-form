@@ -45,7 +45,7 @@
       <!-- Email Input -->
       <div class="form-group" ng-class="{'has-error': signUpForm.email.$invalid}">
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" class="form-control" ng-model="email">
+        <input type="email" name="email" id="email" placeholder="Your email address" class="form-control" ng-model="email">
         <span id="email-error"class="help-block" ng-show="signUpForm.email.$error.email">Please enter a valid email address</span>
       </div>
 
@@ -89,7 +89,7 @@
       <button type="submit" id="reset-button" class="btn btn-default" ng-click="reset(signUpForm)">Reset</button>
 
       <!-- Submit Button -->
-      <button type="submit" id="sign-me-up-button" class="btn btn-primary" ng-click="submitForm(signUpForm)">Sign Me Up!</button>
+      <button type="submit" id="sign-me-up-button" class="btn btn-primary" ng-click="submitForm(signUpForm)" ng-disabled="signUpForm.$invalid">Sign Me Up!</button>
     </div>
   </form>
 
