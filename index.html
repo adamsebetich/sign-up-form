@@ -50,13 +50,13 @@
         <input type="email" name="email" id="email" class="form-control" ng-model="email">
         <span id="email-error"class="help-block" ng-show="signUpForm.email.$error.email">Please enter a valid email address</span>
       </div>
+
+      <!-- Password Input -->
       <div class="errors">
         <div class="invalid" ng-show="signUpForm.password.$touched">
           <span ng-show="signUpForm.password.$error.required">Please enter a password</span>
         </div>
       </div>
-
-      <!-- Password Input -->
       <div ng-app="app" class="form-group" ng-controller="ctrl">
           <label for="password">Password:</label>
             <input autofocus type="password" name="password" placeholder="Password "id="password" class="form-control" ng-model="password" required >

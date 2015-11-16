@@ -6,10 +6,10 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.submitForm = function(form){
   	if(form.$valid) {
-  		alert("Payment info has been submitted!");
+  		console.log('form is valid, YAY!');
   	}
   	else {
-  		alert("There was an error submitting your payment. Please check that your information is correct.");
+  		console.log('form is invalid, BOOO!');
   	}
   }
 
@@ -38,9 +38,6 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
 }])
 
 
-
- 
-
 .controller('ctrl', function($scope){
   $scope.pass="";
   $scope.v=function(){
@@ -64,8 +61,4 @@ function test(pass){
     secure++;
   return secure;
 }
-
-
-
-}])
 
