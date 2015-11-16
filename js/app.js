@@ -13,6 +13,15 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
   	}
   }
 
+  $scope.reset = function(form) {
+  	$scope.email = "";
+  	$scope.firstName = "";
+  	$scope.lastName = "";
+  	$scope.birthdate = "";
+  	$scope.password = "";
+  	$scope.confirmpassword = "";
+  }
+
   $scope.passwordConfirmed = function() {
   	if($scope.password === $scope.confirmpassword) {
   		$scope.signUpForm.confirmpassword.$setValidity('$invalid', true);
