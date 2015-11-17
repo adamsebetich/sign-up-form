@@ -4,6 +4,7 @@ var FormApp = angular.module('FormApp', []);
 
 FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) { 
 
+	//Detects that the form is submitted
   $scope.submitForm = function(form){
   	if(form.$valid) {
   		console.log('form is valid, YAY!');
@@ -14,6 +15,8 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
  
   } 
 
+
+  // This resets all of the fields on the form
   $scope.reset = function(form) {
   	$scope.email = "";
   	$scope.firstName = "";
@@ -23,19 +26,14 @@ FormApp.controller('FormCtrl', ['$scope', '$http', function($scope, $http) {
   	$scope.confirmpassword = "";
   }
 
+  //Compare's password and confirm password fields to see if they equal each other
   $scope.passwordConfirmed = function() {
-  	if($scope.password === $scope.confirmpassword) {
+  	if($scope.password === $scope.confirmpassword) { //if the two are the same, return true
   		$scope.signUpForm.confirmpassword.$setValidity('$invalid', true);
-  		console.log('match');
-  		console.log($scope.password);
-  		console.log($scope.confirmpassword);
   		return true;
   	}
   	else {
   		$scope.signUpForm.confirmpassword.$setValidity('$invalid', false);
-  		console.log('no match');
-  		  		console.log($scope.password);
-  		console.log($scope.confirmpassword);
   		return false;
   	}
   }
