@@ -1,4 +1,3 @@
-My favorite candy is Twix, especially Twix ice cream bars
-My favorte candy is Kit kats, especially when theyre melted in my jeans.
-My favorite candy is chocolate, 
-especially milk chocolate
+The group consists of Diana, Adam, Halle, and Kelsey. 
+This code will test the sign up form we created and also require a few things.
+Like last name, password and a password confirmation. 
