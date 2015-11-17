@@ -46,7 +46,8 @@ describe('Sign Up Form', function(){
 
     var button = element(by.id('sign-me-up-button'));
     button.click();
-
+    var Success = element(by.id('Success'));
+    expect( Success.isDisplayed() ).toEqual(true);
   });
 
 
